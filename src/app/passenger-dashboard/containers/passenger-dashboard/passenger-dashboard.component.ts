@@ -1,17 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Child {
-  name: string,
-  age: number
-}
-
-interface Passenger {
-  id: number,
-  fullname: string,
-  checkedIn: boolean,
-  checkedInDate?: number,
-  children: Child[] | null
-}
+import { Passenger } from '../../models/passenger.interface'
 
 @Component({
   selector: 'passenger-dashboard',
