@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
        <h1> {{ title }} </h1>
        <div> {{ numberOne + numberTwo }} </div>
        <img [src]="logo">
+       <button (click)="handleClick()">
+        Change name
+       </button>
        <input type="text"
         [value]="name"
         (input)="handleInput($event)">
@@ -22,6 +25,11 @@ export class AppComponent {
   numberTwo: number = 2;
   logo: string = "assets/img/logo.png";
   name: string = "User";
+
+  handleClick(){
+    this.name = "TEST User"
+    console.log("clicked")
+  }
 
   handleInput(event: any) {
     this.name = event.target.value
