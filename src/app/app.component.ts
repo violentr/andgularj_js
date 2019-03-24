@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
        <h1> {{ title }} </h1>
        <div> {{ numberOne + numberTwo }} </div>
        <img [src]="logo">
-       <input type="text" [value]="name">
+       <input type="text"
+        [value]="name"
+        (input)="handleInput($event)">
+       <div> {{ name }} </div>
      </div>`,
   styleUrls: ['./app.component.scss']
 })
@@ -19,6 +22,11 @@ export class AppComponent {
   numberTwo: number = 2;
   logo: string = "assets/img/logo.png";
   name: string = "User";
+
+  handleInput(event: any) {
+    this.name = event.target.value
+    console.log("Event", event)
+  }
 
   constructor(){
     this.title = "Ultimate Angular";
