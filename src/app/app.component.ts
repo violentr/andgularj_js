@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 interface Passenger {
   id: number,
   fullname: string,
-  checkedIn: boolean
+    checkedIn: boolean,
+    checkedInDate?: number
 }
 
 @Component({
@@ -18,15 +19,8 @@ interface Passenger {
             [class.checked-in]="passenger.checkedIn"
           ></span>
           {{ i }} : {{ passenger.fullname }}
-         </li>
-       </ul>
-       <h3> Airline Passengers </h3>
-       <ul>
-         <li *ngFor="let passenger of passengers; let i = index;">
-          <span class="status"
-            [ngStyle]="{ 'backgroundColor': passenger.checkedIn ? 'green' : 'red' }"
-          ></span>
-          {{ i }} : {{ passenger.fullname }}
+         <div class="date">Check in date: {{ passenger.checkedIn ? (passenger.checkedInDate | date: 'y MMMM d' | uppercase) :  'Not checked in'}} </div>
+         <br />
          </li>
        </ul>
      </div>`,
@@ -40,7 +34,8 @@ export class AppComponent {
     {
       id: 1,
       fullname: 'Bill',
-      checkedIn: true
+      checkedIn: true,
+      checkedInDate: 1553455266108
     },
     {
       id: 2,
@@ -50,7 +45,8 @@ export class AppComponent {
     {
       id: 3,
       fullname: 'Zoe',
-      checkedIn: true
+      checkedIn: true,
+      checkedInDate: 1277514000000
     },
     {
       id: 4,
@@ -60,7 +56,8 @@ export class AppComponent {
     {
       id: 5,
       fullname: 'Julie',
-      checkedIn: true
+      checkedIn: true,
+      checkedInDate: 23424214
     },
   ]
 
