@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
      <div class="app">
        <h1> {{ title }} </h1>
        <img [src]="logo">
-       <button (click)="handleClick(username.value)">
-         Get value
-       </button>
-       <input type="text" #username >
-       <div> {{ name }} </div>
+       <input type="text"
+        [value]="name"
+        (input)="handleChange($event.target.value)">
+       <div *ngIf="name.length > 2"> Searching for... {{ name }} </div>
      </div>`,
   styleUrls: ['./app.component.scss']
 })
@@ -18,11 +17,10 @@ export class AppComponent {
 
   title: string;
   logo: string = "assets/img/logo.png";
-  name: string = "User";
+  name: string = "";
 
-  handleClick(value: string){
+  handleChange(value: string){
     this.name = value
-    console.log("clicked", value)
   }
 
   constructor(){
