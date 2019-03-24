@@ -12,8 +12,7 @@ import { Component } from '@angular/core';
         Change name
        </button>
        <input type="text"
-        [ngModel]="name"
-        (ngModelChange)="handleChange($event)">
+        [(ngModel)]="name">
        <div> {{ name }} </div>
      </div>`,
   styleUrls: ['./app.component.scss']
