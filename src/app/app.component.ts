@@ -12,8 +12,8 @@ import { Component } from '@angular/core';
         Change name
        </button>
        <input type="text"
-        [value]="name"
-        (input)="handleInput($event)">
+        [ngModel]="name"
+        (ngModelChange)="handleChange($event)">
        <div> {{ name }} </div>
      </div>`,
   styleUrls: ['./app.component.scss']
@@ -31,9 +31,9 @@ export class AppComponent {
     console.log("clicked")
   }
 
-  handleInput(event: any) {
-    this.name = event.target.value
-    console.log("Event", event)
+  handleChange(value: string) {
+    this.name = value
+    console.log("value", value)
   }
 
   constructor(){
