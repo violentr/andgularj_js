@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
        <h1> {{ title }} </h1>
        <div> {{ numberOne + numberTwo }} </div>
        <img [src]="logo">
+       <input type="text" [value]="name">
      </div>`,
   styleUrls: ['./app.component.scss']
 })
@@ -17,6 +18,7 @@ export class AppComponent {
   numberOne: number = 1;
   numberTwo: number = 2;
   logo: string = "assets/img/logo.png";
+  name: string = "User";
 
   constructor(){
     this.title = "Ultimate Angular";
